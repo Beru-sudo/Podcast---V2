@@ -5,6 +5,9 @@
 const audio = document.getElementById("audio");
 const playBtn = document.getElementById("play");
 
+const rewindBtn = document.getElementById("rewind");
+const forwardBtn = document.getElementById("forward");
+
 const progress = document.getElementById("progress");
 const progressContainer = document.getElementById("progress-container");
 
@@ -17,10 +20,7 @@ const durationEl = document.getElementById("duration");
 // ==========================
 
 function formatTime(seconds) {
-
-    if (isNaN(seconds)) {
-        return "0:00";
-    }
+    if (isNaN(seconds)) return "0:00";
 
     const minutes = Math.floor(seconds / 60);
     const secs = Math.floor(seconds % 60);
@@ -36,36 +36,27 @@ function formatTime(seconds) {
 playBtn.addEventListener("click", () => {
 
     if (audio.paused) {
-
         audio.play();
-
         playBtn.innerHTML = "❚❚";
-
     } else {
-
         audio.pause();
-
         playBtn.innerHTML = "▶";
-
     }
 
 });
 
 
 // ==========================
-// CARGAR DURACIÓN TOTAL
+// DURACIÓN
 // ==========================
 
 audio.addEventListener("loadedmetadata", () => {
-
-    durationEl.textContent =
-        formatTime(audio.duration);
-
+    durationEl.textContent = formatTime(audio.duration);
 });
 
 
 // ==========================
-// ACTUALIZAR PROGRESO
+// PROGRESO
 // ==========================
 
 audio.addEventListener("timeupdate", () => {
@@ -75,99 +66,75 @@ audio.addEventListener("timeupdate", () => {
     const progressPercent =
         (audio.currentTime / audio.duration) * 100;
 
-    progress.style.width =
-        progressPercent + "%";
+    progress.style.width = progressPercent + "%";
 
     currentTimeEl.textContent =
         formatTime(audio.currentTime);
-
 });
 
 
 // ==========================
-// CAMBIAR POSICIÓN DEL AUDIO
+// SEEK BAR
 // ==========================
 
 progressContainer.addEventListener("click", (e) => {
 
-    const width =
-        progressContainer.clientWidth;
-
-    const clickX =
-        e.offsetX;
-
-    const duration =
-        audio.duration;
-
-    if (!duration) return;
+    const width = progressContainer.clientWidth;
+    const clickX = e.offsetX;
 
     audio.currentTime =
-        (clickX / width) * duration;
+        (clickX / width) * audio.duration;
 
 });
 
 
 // ==========================
-// CUANDO TERMINA EL AUDIO
+// TERMINA AUDIO
 // ==========================
 
 audio.addEventListener("ended", () => {
-
     playBtn.innerHTML = "▶";
-
     progress.style.width = "0%";
-
     currentTimeEl.textContent = "0:00";
-
 });
 
 
 // ==========================
-// BARRA ESPACIADORA
+// TECLA ESPACIO
 // ==========================
 
 document.addEventListener("keydown", (e) => {
 
     if (e.code === "Space") {
-
         e.preventDefault();
-
         playBtn.click();
-
     }
 
 });
 
 
 // ==========================
-// RETROCEDER 10 SEGUNDOS
+// -10 SEGUNDOS
 // ==========================
 
-const rewindBtn = document.getElementById("rewind");
-
-if (rewindBtn) {
-
-    rewindBtn.addEventListener("click", () => {
-
-        audio.currentTime -= 10;
-
-    });
-
-}
+rewindBtn.addEventListener("click", () => {
+    audio.currentTime -= 10;
+});
 
 
 // ==========================
-// ADELANTAR 10 SEGUNDOS
+// +10 SEGUNDOS
 // ==========================
 
-const forwardBtn = document.getElementById("forward");
+forwardBtn.addEventListener("click", () => {
+    audio.currentTime += 10;
+});
 
-if (forwardBtn) {
 
-    forwardBtn.addEventListener("click", () => {
+// ==========================
+// ERROR DE AUDIO (DEBUG)
+// ==========================
 
-        audio.currentTime += 10;
-
-    });
-
-}
+audio.addEventListener("error", () => {
+    console.log("Error: no se pudo cargar el audio. Revisa la ruta o si está en GitHub.");
+});

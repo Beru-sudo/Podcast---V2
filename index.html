@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="es">
 
 <head>
@@ -7,19 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Podcast 5 Solcitos</title>
 
-```
-<link rel="stylesheet" href="style.css">
-```
-
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-```
 <div class="layout">
 
     <!-- PANEL IZQUIERDO -->
-
     <aside class="info-panel">
 
         <h2>Sobre el Episodio</h2>
@@ -49,173 +43,88 @@
     </aside>
 
     <!-- REPRODUCTOR -->
-
     <main class="player">
 
-        <img
-            class="cover"
-            src="assets/Images/Portada.png"
-            alt="Portada Podcast">
+        <img class="cover"
+             src="assets/Images/Portada.png"
+             alt="Portada Podcast">
 
-        <h1>
-            ¿SEGURIDAD, RENTABILIDAD O SILENCIO?
-        </h1>
+        <h1>¿SEGURIDAD, RENTABILIDAD O SILENCIO?</h1>
 
-        <p class="artist">
-            Podcast 5 Solcitos
-        </p>
+        <p class="artist">Podcast 5 Solcitos</p>
 
+        <!-- TIEMPOS -->
         <div class="time">
-
-            <span id="current-time">
-                0:00
-            </span>
-
-            <span id="duration">
-                0:00
-            </span>
-
+            <span id="current-time">0:00</span>
+            <span id="duration">0:00</span>
         </div>
 
-        <div
-            class="progress-container"
-            id="progress-container">
-
-            <div
-                class="progress"
-                id="progress">
-            </div>
-
+        <!-- BARRA -->
+        <div class="progress-container" id="progress-container">
+            <div class="progress" id="progress"></div>
         </div>
 
+        <!-- CONTROLES -->
         <div class="controls">
 
-            <button class="btn" id="Rewind">
-                -10s
-            </button>
+            <button class="btn" id="rewind">-10s</button>
 
-            <button
-                class="btn play"
-                id="play">
+            <button class="btn play" id="play">▶</button>
 
-                ▶
-
-            </button>
-
-            <button class="btn" id="Forward">
-                +10s
-            </button>
+            <button class="btn" id="forward">+10s</button>
 
         </div>
 
+        <!-- AUDIO PRINCIPAL -->
         <audio id="audio">
-
-            <source
-                src= "audiopodcast.mp3"
-                type="audio/mpeg">
-
-        </audio>
-
-        <audio controls>
             <source src="audiopodcast.mp3" type="audio/mpeg">
         </audio>
 
     </main>
 
     <!-- PARTICIPANTES -->
-
     <aside class="contributors">
 
         <h2>Participantes</h2>
 
-        <!-- Integrante 1 -->
-
         <div class="member">
-
-            <img
-                src="assets/Images/team/Narradora.jpg"
-                alt="Integrante 1">
-
+            <img src="assets/Images/team/Narradora.jpg" alt="">
             <div>
-
-                <h3> Cueva Yadira </h3>
-
+                <h3>Cueva Yadira</h3>
                 <p>Narradora</p>
-
             </div>
-
         </div>
 
-        <!-- Integrante 2 -->
-
         <div class="member">
-
-            <img
-                src="assets/Images/team/Analista.jpg"
-                alt="Integrante 2">
-
+            <img src="assets/Images/team/Analista.jpg" alt="">
             <div>
-
                 <h3>Rodriguez Angie</h3>
-
                 <p>Analista</p>
-
             </div>
-
         </div>
 
-        <!-- Integrante 3 -->
-
         <div class="member">
-
-            <img
-                src="assets/Images/team/Arquitecto.jpg"
-                alt="Integrante 3">
-
+            <img src="assets/Images/team/Arquitecto.jpg" alt="">
             <div>
-
                 <h3>Palomino Diaz Josef</h3>
-
                 <p>Arquitecto</p>
-
             </div>
-
         </div>
 
-        <!-- Integrante 4 -->
-
         <div class="member">
-
-            <img
-                src="assets/Images/team/Ingenierodesistemas.jpg"
-                alt="Integrante 4">
-
+            <img src="assets/Images/team/Ingenierodesistemas.jpg" alt="">
             <div>
-
                 <h3>Peceros Challque Miguel</h3>
-
                 <p>Ingeniero de Sistemas</p>
-
             </div>
-
         </div>
 
-        <!-- Integrante 5 -->
-
         <div class="member">
-
-            <img
-                src="assets/Images/team/Gerente.jpg"
-                alt="Integrante 5">
-
+            <img src="assets/Images/team/Gerente.jpg" alt="">
             <div>
-
                 <h3>Sanchez Echevarria Sebastian</h3>
-
                 <p>Gerente</p>
-
             </div>
-
         </div>
 
     </aside>
@@ -223,8 +132,6 @@
 </div>
 
 <script src="script.js"></script>
-```
 
 </body>
-
 </html>
